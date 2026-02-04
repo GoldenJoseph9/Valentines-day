@@ -30,7 +30,6 @@
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
             overflow: hidden;
-            position: relative;
         }
         
         .header {
@@ -38,17 +37,6 @@
             padding: 40px 30px;
             text-align: center;
             color: white;
-            position: relative;
-        }
-        
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(to bottom right, transparent 49%, white 51%);
         }
         
         h1 {
@@ -56,27 +44,10 @@
             font-size: 3.2rem;
             font-weight: bold;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
-            letter-spacing: 1px;
         }
         
         .content {
-            padding: 50px 40px 40px;
-        }
-        
-        .message-box {
-            background: #fff9fb;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid #ffe6ee;
-            position: relative;
+            padding: 40px;
         }
         
         .message {
@@ -84,28 +55,19 @@
             margin-bottom: 20px;
             text-align: center;
             color: #555;
+            line-height: 1.8;
         }
         
-        .heart-break {
+        .heart {
             text-align: center;
             font-size: 3rem;
             margin: 20px 0;
-            animation: heartbeat 1.5s ease-in-out infinite;
+            animation: heartbeat 1.5s infinite;
         }
         
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
-        }
-        
-        .important-note {
-            background: #fff0f7;
-            border-left: 4px solid #ff6b6b;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            color: #666;
         }
         
         .music-player {
@@ -115,29 +77,6 @@
             margin-top: 30px;
             border: 1px solid #e6eeff;
             text-align: center;
-        }
-        
-        .song-info {
-            margin-bottom: 20px;
-        }
-        
-        .song-title {
-            font-size: 1.4rem;
-            color: #333;
-            font-weight: bold;
-        }
-        
-        .song-artist {
-            color: #666;
-            font-size: 1rem;
-            margin-top: 5px;
-        }
-        
-        .player-controls {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
         }
         
         .play-btn {
@@ -152,7 +91,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            margin: 0 auto;
             transition: all 0.3s ease;
         }
         
@@ -165,73 +104,38 @@
             background: linear-gradient(135deg, #4a69bd 0%, #6a89cc 100%);
         }
         
-        .progress-container {
-            width: 100%;
-            max-width: 400px;
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            margin-top: 10px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
-            width: 0%;
-            border-radius: 3px;
-            transition: width 0.1s;
-        }
-        
-        .time-display {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 400px;
+        .debug-info {
+            background: #fff3cd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
             font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
+            color: #856404;
+            text-align: left;
+            display: none;
         }
         
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
-            width: 100%;
-            max-width: 400px;
+        .debug-info.show {
+            display: block;
         }
         
-        .volume-slider {
-            flex: 1;
-            height: 6px;
-            -webkit-appearance: none;
-            background: #e0e0e0;
-            border-radius: 3px;
-            outline: none;
-        }
-        
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #ff6b6b;
+        .debug-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
             cursor: pointer;
+            margin-top: 10px;
         }
         
         .status {
-            margin-top: 15px;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-        
-        .status.loading {
-            background: #fff3cd;
-            color: #856404;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 500;
         }
         
         .status.ready {
@@ -248,33 +152,8 @@
             text-align: center;
             padding: 25px;
             color: #888;
-            font-size: 0.9rem;
             border-top: 1px solid #eee;
             margin-top: 30px;
-        }
-        
-        .footer-heart {
-            color: #ff6b6b;
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .content {
-                padding: 30px 20px;
-            }
-            
-            .message-box {
-                padding: 20px;
-            }
         }
     </style>
 </head>
@@ -282,68 +161,56 @@
     <div class="container">
         <div class="header">
             <h1>For You</h1>
-            <div class="subtitle">A Valentine's Day Message</div>
+            <div style="opacity: 0.9;">A Valentine's Day Message</div>
         </div>
         
         <div class="content">
-            <div class="message-box">
-                <p class="message">
-                    I know things didn't work out the way either of us hoped, but I wanted you to know something important.
-                </p>
-                
-                <div class="heart-break">💔 → ❤️</div>
-                
-                <p class="message">
-                    You are an incredible person. Smart, funny, and kind. Our time together meant a lot to me, 
-                    and I'll always cherish those memories.
-                </p>
-                
-                <div class="important-note">
-                    This isn't about going back. It's about honoring what was, 
-                    and wishing you nothing but happiness ahead.
-                </div>
-                
-                <p class="message">
-                    Sometimes the right person comes at the wrong time. And that's okay. 
-                    What matters is that we were honest about it.
-                </p>
-            </div>
+            <p class="message">
+                I wanted to send you this note to say thank you for the time we shared. 
+                You're an amazing person, and I wish you nothing but happiness.
+            </p>
+            
+            <div class="heart">💝</div>
+            
+            <p class="message">
+                Sometimes timing doesn't align, and that's okay. 
+                What matters is the respect and care we showed each other.
+            </p>
             
             <div class="music-player">
-                <div class="song-info">
-                    <div class="song-title">Helpless</div>
-                    <div class="song-artist">Tatiana Manaois</div>
+                <h3 style="color: #333; margin-bottom: 20px;">A Song for You</h3>
+                
+                <button class="play-btn" id="playBtn">
+                    <span id="playIcon">▶</span>
+                    <span id="playText">Play Helpless by Tatiana Manaois</span>
+                </button>
+                
+                <div class="status ready" id="status">
+                    Click play to start the song
                 </div>
                 
-                <div class="player-controls">
-                    <button class="play-btn" id="playBtn">
-                        <span id="playIcon">▶</span>
-                        <span id="playText">Play Song</span>
-                    </button>
-                    
-                    <div class="progress-container" id="progressContainer">
-                        <div class="progress-bar" id="progressBar"></div>
-                    </div>
-                    
-                    <div class="time-display">
-                        <span id="currentTime">0:00</span>
-                        <span id="duration">0:00</span>
-                    </div>
-                    
-                    <div class="volume-control">
-                        <span style="font-size: 1.2rem;">🔊</span>
-                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
-                    </div>
-                    
-                    <div class="status ready" id="status">Ready to play</div>
+                <button class="debug-btn" id="debugBtn">🔧 Show Debug Info</button>
+                
+                <div class="debug-info" id="debugInfo">
+                    <strong>Debug Information:</strong><br>
+                    • Audio Source: <span id="audioSourceInfo">Loading...</span><br>
+                    • Audio State: <span id="audioState">Loading...</span><br>
+                    • File Size: <span id="fileSize">Checking...</span><br>
+                    • Browser Support: <span id="browserSupport">Checking...</span><br>
+                    <br>
+                    <strong>If music doesn't play:</strong><br>
+                    1. Make sure "helpless.mp3" is in your GitHub repo<br>
+                    2. File must be less than 25MB<br>
+                    3. Try Chrome or Firefox browser<br>
+                    4. Click play multiple times
                 </div>
             </div>
             
             <div class="footer">
                 <p>With respect and best wishes,</p>
-                <p>Happy Valentine's Day <span class="footer-heart">♥</span></p>
-                <p style="font-size: 0.8rem; margin-top: 10px; color: #aaa;">
-                    This page is hosted on GitHub Pages • Music plays directly from GitHub
+                <p style="color: #ff6b6b; font-size: 1.2rem; margin-top: 10px;">Happy Valentine's Day 💘</p>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: #aaa;">
+                    Page hosted on GitHub Pages • Your repository: GoldenJoseph9/Valentines-day
                 </p>
             </div>
         </div>
@@ -351,9 +218,8 @@
 
     <!-- Audio Player -->
     <audio id="audioPlayer" preload="metadata">
-        <!-- IMPORTANT: This assumes your MP3 is named "helpless.mp3" in the same GitHub repo -->
-        <source src="helpless.mp3" type="audio/mpeg">
-        Your browser does not support audio playback.
+        <!-- FIXED: Using direct GitHub raw URL -->
+        <source src="https://raw.githubusercontent.com/GoldenJoseph9/Valentines-day/main/helpless.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -362,37 +228,57 @@
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
         const playText = document.getElementById('playText');
-        const progressBar = document.getElementById('progressBar');
-        const progressContainer = document.getElementById('progressContainer');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-        const volumeSlider = document.getElementById('volumeSlider');
         const statusEl = document.getElementById('status');
+        const debugBtn = document.getElementById('debugBtn');
+        const debugInfo = document.getElementById('debugInfo');
+        const audioSourceInfo = document.getElementById('audioSourceInfo');
+        const audioState = document.getElementById('audioState');
+        const fileSize = document.getElementById('fileSize');
+        const browserSupport = document.getElementById('browserSupport');
         
         let isPlaying = false;
         
-        // Format time (seconds to mm:ss)
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return "0:00";
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-        
-        // Update progress bar
-        function updateProgress() {
-            if (audio.duration) {
-                const progress = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = `${progress}%`;
-                currentTimeEl.textContent = formatTime(audio.currentTime);
+        // Debug function to check audio file
+        async function checkAudioFile() {
+            const audioUrl = 'https://raw.githubusercontent.com/GoldenJoseph9/Valentines-day/main/helpless.mp3';
+            audioSourceInfo.textContent = audioUrl;
+            
+            try {
+                // Check if file exists and get size
+                const response = await fetch(audioUrl, { method: 'HEAD' });
+                if (response.ok) {
+                    const size = response.headers.get('content-length');
+                    fileSize.textContent = size ? `${(size / 1024 / 1024).toFixed(2)} MB` : 'Unknown size';
+                    statusEl.textContent = '✓ Music file found on GitHub';
+                    statusEl.className = 'status ready';
+                } else {
+                    fileSize.textContent = 'File not found or inaccessible';
+                    statusEl.textContent = '❌ Music file not found on GitHub';
+                    statusEl.className = 'status error';
+                }
+            } catch (error) {
+                fileSize.textContent = 'Error checking file';
+                statusEl.textContent = '❌ Error accessing GitHub file';
+                statusEl.className = 'status error';
             }
+            
+            // Check browser support
+            browserSupport.textContent = audio.canPlayType('audio/mpeg') ? 'MP3 supported ✓' : 'MP3 not supported';
+            
+            // Update audio state
+            updateAudioState();
         }
         
-        // Set progress on click
-        function setProgress(e) {
-            if (!audio.duration) return;
-            const clickPosition = e.offsetX / progressContainer.clientWidth;
-            audio.currentTime = clickPosition * audio.duration;
+        // Update audio state display
+        function updateAudioState() {
+            const states = [
+                'HAVE_NOTHING (0)',
+                'HAVE_METADATA (1)',
+                'HAVE_CURRENT_DATA (2)',
+                'HAVE_FUTURE_DATA (3)',
+                'HAVE_ENOUGH_DATA (4)'
+            ];
+            audioState.textContent = states[audio.readyState] || `Unknown (${audio.readyState})`;
         }
         
         // Play/Pause toggle
@@ -401,10 +287,10 @@
                 audio.pause();
                 isPlaying = false;
                 playIcon.textContent = '▶';
-                playText.textContent = 'Play Song';
+                playText.textContent = 'Play Helpless by Tatiana Manaois';
                 playBtn.classList.remove('playing');
-                statusEl.textContent = 'Paused';
-                statusEl.className = 'status loading';
+                statusEl.textContent = 'Paused - Click to resume';
+                statusEl.className = 'status ready';
             } else {
                 audio.play()
                     .then(() => {
@@ -412,48 +298,59 @@
                         playIcon.textContent = '⏸';
                         playText.textContent = 'Pause';
                         playBtn.classList.add('playing');
-                        statusEl.textContent = 'Playing now';
+                        statusEl.textContent = 'Playing now!';
                         statusEl.className = 'status ready';
+                        updateAudioState();
                     })
                     .catch(error => {
-                        statusEl.textContent = 'Error: Click play again';
+                        console.error('Playback error:', error);
+                        statusEl.innerHTML = '❌ Playback failed. Try:<br>1. Clicking play again<br>2. Using Chrome/Firefox<br>3. Checking file on GitHub';
                         statusEl.className = 'status error';
-                        console.error('Audio error:', error);
+                        
+                        // Auto-retry after 1 second
+                        setTimeout(() => {
+                            audio.load();
+                        }, 1000);
                     });
             }
-        }
-        
-        // Volume control
-        function setVolume() {
-            audio.volume = volumeSlider.value;
         }
         
         // Initialize
         function init() {
             // Set up event listeners
             playBtn.addEventListener('click', togglePlay);
-            progressContainer.addEventListener('click', setProgress);
-            volumeSlider.addEventListener('input', setVolume);
+            debugBtn.addEventListener('click', () => {
+                debugInfo.classList.toggle('show');
+                debugBtn.textContent = debugInfo.classList.contains('show') ? '🔧 Hide Debug Info' : '🔧 Show Debug Info';
+            });
             
             // Audio event listeners
-            audio.addEventListener('timeupdate', updateProgress);
-            
             audio.addEventListener('loadedmetadata', () => {
-                if (audio.duration) {
-                    durationEl.textContent = formatTime(audio.duration);
-                }
+                updateAudioState();
+                statusEl.textContent = '✓ Ready to play - Click the button above';
+                statusEl.className = 'status ready';
             });
             
             audio.addEventListener('canplay', () => {
-                statusEl.textContent = 'Ready to play';
+                updateAudioState();
+                statusEl.textContent = '✓ Music loaded and ready!';
                 statusEl.className = 'status ready';
             });
             
             audio.addEventListener('error', (e) => {
                 console.error('Audio error:', audio.error);
-                statusEl.textContent = 'Error loading music. Make sure "helpless.mp3" is in the GitHub repository.';
+                updateAudioState();
+                
+                let errorMsg = 'Unknown audio error';
+                switch(audio.error.code) {
+                    case 1: errorMsg = 'Audio loading aborted'; break;
+                    case 2: errorMsg = 'Network error - Check GitHub connection'; break;
+                    case 3: errorMsg = 'Audio decoding error - Invalid MP3 file'; break;
+                    case 4: errorMsg = 'Audio not supported - Try different format'; break;
+                }
+                
+                statusEl.innerHTML = `❌ ${errorMsg}`;
                 statusEl.className = 'status error';
-                playBtn.disabled = true;
             });
             
             audio.addEventListener('ended', () => {
@@ -461,27 +358,34 @@
                 playIcon.textContent = '▶';
                 playText.textContent = 'Play Again';
                 playBtn.classList.remove('playing');
-                statusEl.textContent = 'Song ended';
-                statusEl.className = 'status loading';
+                statusEl.textContent = 'Song ended - Click to play again';
+                statusEl.className = 'status ready';
             });
             
-            // Set initial volume
-            audio.volume = volumeSlider.value;
+            // Check the audio file on GitHub
+            checkAudioFile();
             
-            // Try to load the audio
+            // Try to preload the audio
             audio.load();
             
-            // Check if audio loaded after 3 seconds
+            // Check after 5 seconds if still loading
             setTimeout(() => {
-                if (audio.readyState === 0) { // HAVE_NOTHING
-                    statusEl.textContent = 'Music not loaded. Make sure "helpless.mp3" is uploaded to GitHub.';
+                if (audio.readyState === 0) {
+                    statusEl.innerHTML = '⚠️ Still loading... Try:<br>1. Clicking play button<br>2. Refreshing page<br>3. Checking GitHub file';
                     statusEl.className = 'status error';
                 }
-            }, 3000);
+            }, 5000);
         }
         
         // Start when page loads
         document.addEventListener('DOMContentLoaded', init);
+        
+        // Also try to play on any user click (helps with autoplay restrictions)
+        document.addEventListener('click', function firstClick() {
+            if (audio.readyState >= 1) {
+                audio.load();
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
