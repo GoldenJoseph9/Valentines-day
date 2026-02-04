@@ -1,225 +1,367 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>For You - Valentine's Day</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #ffebee 0%, #fce4ec 100%);
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #ffcce6 0%, #ffebf9 100%);
+            margin: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            color: #333;
         }
         
-        .container {
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px 40px;
             max-width: 700px;
             width: 100%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            box-shadow: 0 25px 70px rgba(255, 102, 178, 0.2);
+            text-align: center;
+            position: relative;
             overflow: hidden;
+            border: 1px solid #ffd6e8;
         }
         
-        .header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: white;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, #ff6b9d, #ff9ec0);
         }
         
         h1 {
-            font-family: 'Georgia', serif;
-            font-size: 3.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            color: #ff4081;
+            font-size: 3.5rem;
+            margin: 0 0 15px 0;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.1);
         }
         
-        .content {
-            padding: 40px;
+        .subtitle {
+            color: #ff6b9d;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .message-box {
+            background: linear-gradient(to right, #fff5f9, #fff);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #ff6b9d;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.05);
         }
         
         .message {
             font-size: 1.15rem;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #555;
             line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
         }
         
-        .heart {
+        .message:last-child {
+            margin-bottom: 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #888;
             text-align: center;
-            font-size: 3rem;
-            margin: 20px 0;
-            animation: heartbeat 1.5s infinite;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            background: #f9f9ff;
+            border-left: 3px solid #6b9dff;
         }
         
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        .heart-container {
+            margin: 30px 0;
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
         }
         
-        .music-player {
-            background: #f8f9ff;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-            border: 1px solid #e6eeff;
-            text-align: center;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
-        .play-btn {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+        .player-container {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f5ff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid #e6eeff;
+            position: relative;
+        }
+        
+        .song-title {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .song-artist {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        .control-btn {
+            background: linear-gradient(135deg, #ff4081 0%, #ff6b9d 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.3);
+            margin: 15px 0;
+        }
+        
+        .control-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 64, 129, 0.4);
+        }
+        
+        .control-btn.playing {
+            background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+            box-shadow: 0 8px 25px rgba(91, 134, 229, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 25px 0 10px 0;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ff4081, #ff6b9d);
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.1s;
+        }
+        
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+        
+        .status-box {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .status-success {
+            background: #e8f7ef;
+            color: #27ae60;
+            border: 2px solid #a3e4c0;
+        }
+        
+        .status-error {
+            background: #ffeaea;
+            color: #e74c3c;
+            border: 2px solid #f5b7b1;
+        }
+        
+        .status-loading {
+            background: #fff8e1;
+            color: #f39c12;
+            border: 2px solid #ffeaa7;
+        }
+        
+        .volume-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
         }
         
-        .play-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        .volume-slider {
+            width: 200px;
+            height: 6px;
+            -webkit-appearance: none;
+            background: #e0e0e0;
+            border-radius: 3px;
+            outline: none;
         }
         
-        .play-btn.playing {
-            background: linear-gradient(135deg, #4a69bd 0%, #6a89cc 100%);
-        }
-        
-        .debug-info {
-            background: #fff3cd;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: #856404;
-            text-align: left;
-            display: none;
-        }
-        
-        .debug-info.show {
-            display: block;
-        }
-        
-        .debug-btn {
-            background: #6c757d;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff4081;
             cursor: pointer;
-            margin-top: 10px;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
-        .status {
-            margin: 15px 0;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 500;
+        .direct-link {
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
         
-        .status.ready {
-            background: #d4edda;
-            color: #155724;
+        .direct-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
         }
         
-        .status.error {
-            background: #f8d7da;
-            color: #721c24;
+        .direct-link a:hover {
+            text-decoration: underline;
         }
         
         .footer {
-            text-align: center;
-            padding: 25px;
-            color: #888;
+            margin-top: 40px;
+            padding-top: 25px;
             border-top: 1px solid #eee;
-            margin-top: 30px;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        
+        .footer-heart {
+            color: #ff4081;
+            font-size: 1.5rem;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .control-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>For You</h1>
-            <div style="opacity: 0.9;">A Valentine's Day Message</div>
+    <div class="card">
+        <h1>For You</h1>
+        <div class="subtitle">A Valentine's Day Message</div>
+        
+        <div class="message-box">
+            <div class="message">
+                Even though our paths have changed, I wanted to take a moment on Valentine's Day 
+                to thank you for the time we shared. You're an incredible person with so much 
+                light to offer the world.
+            </div>
+            
+            <div class="message">
+                Our connection was special to me, and I'll always remember it with gratitude. 
+                Sometimes life has different plans, and that's okay.
+            </div>
         </div>
         
-        <div class="content">
-            <p class="message">
-                I wanted to send you this note to say thank you for the time we shared. 
-                You're an amazing person, and I wish you nothing but happiness.
-            </p>
+        <div class="quote">
+            "The most beautiful things are not perfect, they are just meant to be."
+        </div>
+        
+        <div class="heart-container">
+            💝🌸🌷
+        </div>
+        
+        <div class="player-container">
+            <div class="song-title">Helpless</div>
+            <div class="song-artist">Tatiana Manaois</div>
             
-            <div class="heart">💝</div>
+            <button class="control-btn" id="playBtn">
+                <span id="playIcon">▶</span>
+                <span id="playText">Play Song</span>
+            </button>
             
-            <p class="message">
-                Sometimes timing doesn't align, and that's okay. 
-                What matters is the respect and care we showed each other.
-            </p>
-            
-            <div class="music-player">
-                <h3 style="color: #333; margin-bottom: 20px;">A Song for You</h3>
-                
-                <button class="play-btn" id="playBtn">
-                    <span id="playIcon">▶</span>
-                    <span id="playText">Play Helpless by Tatiana Manaois</span>
-                </button>
-                
-                <div class="status ready" id="status">
-                    Click play to start the song
-                </div>
-                
-                <button class="debug-btn" id="debugBtn">🔧 Show Debug Info</button>
-                
-                <div class="debug-info" id="debugInfo">
-                    <strong>Debug Information:</strong><br>
-                    • Audio Source: <span id="audioSourceInfo">Loading...</span><br>
-                    • Audio State: <span id="audioState">Loading...</span><br>
-                    • File Size: <span id="fileSize">Checking...</span><br>
-                    • Browser Support: <span id="browserSupport">Checking...</span><br>
-                    <br>
-                    <strong>If music doesn't play:</strong><br>
-                    1. Make sure "helpless.mp3" is in your GitHub repo<br>
-                    2. File must be less than 25MB<br>
-                    3. Try Chrome or Firefox browser<br>
-                    4. Click play multiple times
-                </div>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
             
-            <div class="footer">
-                <p>With respect and best wishes,</p>
-                <p style="color: #ff6b6b; font-size: 1.2rem; margin-top: 10px;">Happy Valentine's Day 💘</p>
-                <p style="font-size: 0.8rem; margin-top: 15px; color: #aaa;">
-                    Page hosted on GitHub Pages • Your repository: GoldenJoseph9/Valentines-day
-                </p>
+            <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
             </div>
+            
+            <div class="volume-container">
+                <span style="font-size: 1.3rem;">🔊</span>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+            </div>
+            
+            <div class="status-box status-loading" id="statusBox">
+                ⏳ Loading your song from GitHub...
+            </div>
+            
+            <div class="direct-link">
+                <strong>Direct link to your song:</strong><br>
+                <a href="https://goldenjoseph9.github.io/Valentines-day/helpless.mp3" target="_blank">
+                    https://goldenjoseph9.github.io/Valentines-day/helpless.mp3
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This comes with respect, gratitude, and warm wishes for your journey ahead.</p>
+            <p style="margin-top: 15px; font-size: 1.1rem;">
+                Happy Valentine's Day <span class="footer-heart">❤️</span>
+            </p>
+            <p style="font-size: 0.85rem; color: #aaa; margin-top: 20px;">
+                Hosted on GitHub Pages • File is accessible and ready to play
+            </p>
         </div>
     </div>
 
-    <!-- Audio Player -->
-    <audio id="audioPlayer" preload="metadata">
-        <!-- FIXED: Using direct GitHub raw URL -->
+    <!-- AUDIO PLAYER - USING YOUR EXACT URL -->
+    <audio id="audioPlayer" preload="metadata" crossorigin="anonymous">
+        <!-- YOUR EXACT WORKING URL -->
+        <source src="https://goldenjoseph9.github.io/Valentines-day/helpless.mp3" type="audio/mpeg">
+        
+        <!-- Alternative URL format -->
+        <source src="./helpless.mp3" type="audio/mpeg">
+        
+        <!-- GitHub Raw URL as backup -->
         <source src="https://raw.githubusercontent.com/GoldenJoseph9/Valentines-day/main/helpless.mp3" type="audio/mpeg">
+        
+        Your browser does not support the audio element.
     </audio>
 
     <script>
@@ -228,69 +370,87 @@
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
         const playText = document.getElementById('playText');
-        const statusEl = document.getElementById('status');
-        const debugBtn = document.getElementById('debugBtn');
-        const debugInfo = document.getElementById('debugInfo');
-        const audioSourceInfo = document.getElementById('audioSourceInfo');
-        const audioState = document.getElementById('audioState');
-        const fileSize = document.getElementById('fileSize');
-        const browserSupport = document.getElementById('browserSupport');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const statusBox = document.getElementById('statusBox');
         
         let isPlaying = false;
+        let audioLoaded = false;
         
-        // Debug function to check audio file
-        async function checkAudioFile() {
-            const audioUrl = 'https://raw.githubusercontent.com/GoldenJoseph9/Valentines-day/main/helpless.mp3';
-            audioSourceInfo.textContent = audioUrl;
+        // Format time (mm:ss)
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        
+        // Update progress bar
+        function updateProgress() {
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressFill.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            }
+        }
+        
+        // Set progress on click
+        function setProgress(e) {
+            if (!audio.duration) return;
+            const clickX = e.offsetX;
+            const width = progressBar.clientWidth;
+            const duration = audio.duration;
             
-            try {
-                // Check if file exists and get size
-                const response = await fetch(audioUrl, { method: 'HEAD' });
-                if (response.ok) {
-                    const size = response.headers.get('content-length');
-                    fileSize.textContent = size ? `${(size / 1024 / 1024).toFixed(2)} MB` : 'Unknown size';
-                    statusEl.textContent = '✓ Music file found on GitHub';
-                    statusEl.className = 'status ready';
-                } else {
-                    fileSize.textContent = 'File not found or inaccessible';
-                    statusEl.textContent = '❌ Music file not found on GitHub';
-                    statusEl.className = 'status error';
-                }
-            } catch (error) {
-                fileSize.textContent = 'Error checking file';
-                statusEl.textContent = '❌ Error accessing GitHub file';
-                statusEl.className = 'status error';
+            audio.currentTime = (clickX / width) * duration;
+        }
+        
+        // Play/Pause function
+        function togglePlay() {
+            if (!audioLoaded) {
+                // First time - load and play
+                statusBox.textContent = "⏳ Loading audio...";
+                statusBox.className = "status-box status-loading";
+                
+                audio.load();
+                
+                setTimeout(() => {
+                    audio.play()
+                        .then(() => {
+                            isPlaying = true;
+                            audioLoaded = true;
+                            playIcon.textContent = '⏸';
+                            playText.textContent = 'Pause';
+                            playBtn.classList.add('playing');
+                            statusBox.textContent = "✅ Playing now!";
+                            statusBox.className = "status-box status-success";
+                            
+                            if (audio.duration && !isNaN(audio.duration)) {
+                                durationEl.textContent = formatTime(audio.duration);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("First play error:", error);
+                            statusBox.innerHTML = "⚠️ Click blocked. <strong>Click play again</strong> or try different browser.";
+                            statusBox.className = "status-box status-error";
+                            
+                            // Force load
+                            audio.load();
+                        });
+                }, 100);
+                return;
             }
             
-            // Check browser support
-            browserSupport.textContent = audio.canPlayType('audio/mpeg') ? 'MP3 supported ✓' : 'MP3 not supported';
-            
-            // Update audio state
-            updateAudioState();
-        }
-        
-        // Update audio state display
-        function updateAudioState() {
-            const states = [
-                'HAVE_NOTHING (0)',
-                'HAVE_METADATA (1)',
-                'HAVE_CURRENT_DATA (2)',
-                'HAVE_FUTURE_DATA (3)',
-                'HAVE_ENOUGH_DATA (4)'
-            ];
-            audioState.textContent = states[audio.readyState] || `Unknown (${audio.readyState})`;
-        }
-        
-        // Play/Pause toggle
-        function togglePlay() {
             if (isPlaying) {
                 audio.pause();
                 isPlaying = false;
                 playIcon.textContent = '▶';
-                playText.textContent = 'Play Helpless by Tatiana Manaois';
+                playText.textContent = 'Play';
                 playBtn.classList.remove('playing');
-                statusEl.textContent = 'Paused - Click to resume';
-                statusEl.className = 'status ready';
+                statusBox.textContent = "⏸ Paused";
+                statusBox.className = "status-box status-loading";
             } else {
                 audio.play()
                     .then(() => {
@@ -298,59 +458,88 @@
                         playIcon.textContent = '⏸';
                         playText.textContent = 'Pause';
                         playBtn.classList.add('playing');
-                        statusEl.textContent = 'Playing now!';
-                        statusEl.className = 'status ready';
-                        updateAudioState();
+                        statusBox.textContent = "✅ Playing now!";
+                        statusBox.className = "status-box status-success";
                     })
                     .catch(error => {
-                        console.error('Playback error:', error);
-                        statusEl.innerHTML = '❌ Playback failed. Try:<br>1. Clicking play again<br>2. Using Chrome/Firefox<br>3. Checking file on GitHub';
-                        statusEl.className = 'status error';
-                        
-                        // Auto-retry after 1 second
-                        setTimeout(() => {
-                            audio.load();
-                        }, 1000);
+                        console.error("Play error:", error);
+                        statusBox.innerHTML = "❌ Error. <button onclick='forceAudioLoad()' style='background:#e74c3c;color:white;border:none;padding:5px 10px;border-radius:3px;margin-left:10px;cursor:pointer;'>Fix Audio</button>";
+                        statusBox.className = "status-box status-error";
                     });
             }
         }
         
-        // Initialize
-        function init() {
-            // Set up event listeners
-            playBtn.addEventListener('click', togglePlay);
-            debugBtn.addEventListener('click', () => {
-                debugInfo.classList.toggle('show');
-                debugBtn.textContent = debugInfo.classList.contains('show') ? '🔧 Hide Debug Info' : '🔧 Show Debug Info';
+        // Force audio load function
+        window.forceAudioLoad = function() {
+            statusBox.textContent = "🔄 Forcing audio reload...";
+            statusBox.className = "status-box status-loading";
+            
+            // Create new audio element
+            const newAudio = new Audio();
+            newAudio.src = "https://goldenjoseph9.github.io/Valentines-day/helpless.mp3";
+            newAudio.preload = "auto";
+            newAudio.volume = volumeSlider.value;
+            
+            newAudio.addEventListener('canplay', () => {
+                audio.src = newAudio.src;
+                audio.load();
+                statusBox.textContent = "✅ Audio reloaded! Click play.";
+                statusBox.className = "status-box status-success";
             });
             
+            newAudio.addEventListener('error', () => {
+                statusBox.textContent = "❌ Cannot load audio. File may be corrupted.";
+                statusBox.className = "status-box status-error";
+            });
+            
+            newAudio.load();
+        };
+        
+        // Volume control
+        function setVolume() {
+            audio.volume = volumeSlider.value;
+        }
+        
+        // Initialize everything
+        function init() {
+            // Setup event listeners
+            playBtn.addEventListener('click', togglePlay);
+            progressBar.addEventListener('click', setProgress);
+            volumeSlider.addEventListener('input', setVolume);
+            
             // Audio event listeners
+            audio.addEventListener('timeupdate', updateProgress);
+            
             audio.addEventListener('loadedmetadata', () => {
-                updateAudioState();
-                statusEl.textContent = '✓ Ready to play - Click the button above';
-                statusEl.className = 'status ready';
+                audioLoaded = true;
+                if (audio.duration && !isNaN(audio.duration)) {
+                    durationEl.textContent = formatTime(audio.duration);
+                }
+                statusBox.textContent = "✅ Song loaded! Click play to start.";
+                statusBox.className = "status-box status-success";
             });
             
             audio.addEventListener('canplay', () => {
-                updateAudioState();
-                statusEl.textContent = '✓ Music loaded and ready!';
-                statusEl.className = 'status ready';
+                audioLoaded = true;
+                statusBox.textContent = "✅ Ready to play! Click the button above.";
+                statusBox.className = "status-box status-success";
             });
             
             audio.addEventListener('error', (e) => {
-                console.error('Audio error:', audio.error);
-                updateAudioState();
+                console.error("Audio error:", audio.error);
                 
-                let errorMsg = 'Unknown audio error';
-                switch(audio.error.code) {
-                    case 1: errorMsg = 'Audio loading aborted'; break;
-                    case 2: errorMsg = 'Network error - Check GitHub connection'; break;
-                    case 3: errorMsg = 'Audio decoding error - Invalid MP3 file'; break;
-                    case 4: errorMsg = 'Audio not supported - Try different format'; break;
+                let errorMsg = "Audio loading error";
+                if (audio.error) {
+                    switch(audio.error.code) {
+                        case 1: errorMsg = "Audio loading cancelled"; break;
+                        case 2: errorMsg = "Network error"; break;
+                        case 3: errorMsg = "MP3 file corrupted or invalid format"; break;
+                        case 4: errorMsg = "Audio not supported"; break;
+                    }
                 }
                 
-                statusEl.innerHTML = `❌ ${errorMsg}`;
-                statusEl.className = 'status error';
+                statusBox.innerHTML = `❌ ${errorMsg}. <button onclick='forceAudioLoad()' style='background:#3498db;color:white;border:none;padding:5px 10px;border-radius:3px;margin-left:10px;cursor:pointer;'>Try Again</button>`;
+                statusBox.className = "status-box status-error";
             });
             
             audio.addEventListener('ended', () => {
@@ -358,34 +547,38 @@
                 playIcon.textContent = '▶';
                 playText.textContent = 'Play Again';
                 playBtn.classList.remove('playing');
-                statusEl.textContent = 'Song ended - Click to play again';
-                statusEl.className = 'status ready';
+                statusBox.textContent = "🎵 Song ended. Click to play again.";
+                statusBox.className = "status-box status-success";
             });
             
-            // Check the audio file on GitHub
-            checkAudioFile();
+            // Set initial volume
+            audio.volume = volumeSlider.value;
             
-            // Try to preload the audio
-            audio.load();
-            
-            // Check after 5 seconds if still loading
+            // Auto-start loading
             setTimeout(() => {
-                if (audio.readyState === 0) {
-                    statusEl.innerHTML = '⚠️ Still loading... Try:<br>1. Clicking play button<br>2. Refreshing page<br>3. Checking GitHub file';
-                    statusEl.className = 'status error';
+                if (!audioLoaded) {
+                    audio.load();
                 }
-            }, 5000);
+            }, 500);
+            
+            // Update status after 3 seconds
+            setTimeout(() => {
+                if (!audioLoaded && audio.readyState === 0) {
+                    statusBox.innerHTML = "⚠️ Taking longer than expected. <button onclick='forceAudioLoad()' style='background:#f39c12;color:white;border:none;padding:5px 10px;border-radius:3px;margin-left:10px;cursor:pointer;'>Force Load</button>";
+                    statusBox.className = "status-box status-error";
+                }
+            }, 3000);
         }
         
         // Start when page loads
         document.addEventListener('DOMContentLoaded', init);
         
-        // Also try to play on any user click (helps with autoplay restrictions)
+        // Also try loading on any click (helps with autoplay restrictions)
         document.addEventListener('click', function firstClick() {
-            if (audio.readyState >= 1) {
+            if (!audioLoaded) {
                 audio.load();
             }
         }, { once: true });
     </script>
 </body>
-</html>
+</html> 
