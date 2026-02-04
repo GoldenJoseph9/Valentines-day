@@ -1,9 +1,9 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You - Valentine's Day</title>
+    <title>For Sophie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
@@ -26,14 +26,66 @@
             padding: 20px;
         }
         
-        .container {
+        /* INITIAL SCREEN - JUST THE BUTTON */
+        #initialScreen {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .heart-icon {
+            font-size: 4rem;
+            color: #ff758c;
+            margin-bottom: 30px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .open-btn {
+            background: linear-gradient(to right, #ff4757, #ff6b81);
+            color: white;
+            border: none;
+            padding: 25px 60px;
+            border-radius: 50px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(255, 107, 129, 0.4);
+            margin: 30px 0;
+        }
+        
+        .open-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 129, 0.6);
+        }
+        
+        .open-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .initial-message {
+            color: #666;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* MAIN CONTENT - HIDDEN INITIALLY */
+        #mainContent {
+            display: none;
             max-width: 800px;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            position: relative;
         }
         
         .header {
@@ -41,20 +93,12 @@
             padding: 30px 20px;
             text-align: center;
             color: white;
-            position: relative;
         }
         
         h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 3.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
         }
         
         .content {
@@ -67,7 +111,6 @@
             padding: 25px;
             margin-bottom: 30px;
             border-left: 5px solid #ff7eb3;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
         
         .message {
@@ -140,95 +183,25 @@
             border-radius: 15px;
         }
         
-        .music-player {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
         .play-btn {
-            background-color: #ff7eb3;
+            background-color: #4a90e2;
             color: white;
             border: none;
             padding: 15px 35px;
             border-radius: 50px;
-            font-family: 'Quicksand', sans-serif;
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 126, 179, 0.3);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
             display: flex;
             align-items: center;
             gap: 10px;
+            margin: 0 auto;
         }
         
         .play-btn:hover {
-            background-color: #ff658c;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 126, 179, 0.4);
-        }
-        
-        .play-btn.playing {
-            background-color: #4a90e2;
-            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-        }
-        
-        .progress-container {
-            width: 100%;
-            max-width: 400px;
-            height: 6px;
-            background-color: #e0e0e0;
-            border-radius: 3px;
-            margin-top: 10px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, #ff7eb3, #ff758c);
-            width: 0%;
-            border-radius: 3px;
-            transition: width 0.1s;
-        }
-        
-        .time-info {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 400px;
-            margin-top: 5px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .volume-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        .volume-slider {
-            flex-grow: 1;
-            height: 6px;
-            -webkit-appearance: none;
-            background: #e0e0e0;
-            border-radius: 3px;
-            outline: none;
-        }
-        
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #ff7eb3;
-            cursor: pointer;
+            background-color: #357ae8;
+            transform: translateY(-2px);
         }
         
         .song-title {
@@ -244,71 +217,36 @@
             margin-bottom: 15px;
         }
         
-        .status {
-            font-size: 0.9rem;
-            margin-top: 10px;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-        
-        .status.ready {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .status.loading {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .message {
-                font-size: 1.05rem;
-            }
-            
-            .play-btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
+        .now-playing {
+            color: #27ae60;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1rem;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #ff7eb3;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 8px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- INITIAL SCREEN - BIG RED BUTTON -->
+    <div id="initialScreen">
+        <div class="heart-icon">💝</div>
+        <h2 style="color: #ff6b81; margin-bottom: 20px;">For Sophie</h2>
+        <button class="open-btn" onclick="openValentine()">
+            Open
+        </button>
+        <p class="initial-message">
+            A Valentine's Day message for you...
+        </p>
+    </div>
+    
+    <!-- MAIN CONTENT - REVEALED AFTER CLICK -->
+    <div id="mainContent">
         <div class="header">
-            <h1>For You</h1>
+            <h1>For Sophie</h1>
             <div class="subtitle">A Valentine's Day Message</div>
         </div>
         
@@ -334,7 +272,7 @@
                 </div>
                 
                 <p class="message">
-                    The decision to step back was about circumstances, not about you. Sometimes timing doesn't align, and that's okay.
+                    My decision to step back was about timing and circumstances, not about you. Sometimes things don't align, and that's okay.
                 </p>
             </div>
             
@@ -349,181 +287,107 @@
             
             <div class="music-section">
                 <h3>A Song for You</h3>
-                <div class="song-title">Helpless</div>
+                <div class="song-title">Helplessly</div>
                 <div class="song-artist">Tatiana Manaois</div>
                 
-                <div class="music-player">
-                    <button class="play-btn" id="playBtn">
-                        <span id="playIcon">▶️</span>
-                        <span id="playText">Play Song</span>
-                    </button>
-                    
-                    <div class="progress-container" id="progressContainer">
-                        <div class="progress-bar" id="progressBar"></div>
-                    </div>
-                    
-                    <div class="time-info">
-                        <span id="currentTime">0:00</span>
-                        <span id="duration">0:00</span>
-                    </div>
-                    
-                    <div class="volume-container">
-                        <span>🔊</span>
-                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
-                    </div>
-                    
-                    <div class="status ready" id="statusText">
-                        Ready to play Tatiana Manaois - Helpless
-                    </div>
+                <button class="play-btn" id="playBtn" onclick="toggleMusic()">
+                    <span id="playIcon">⏸️</span>
+                    <span id="playText">Pause Song</span>
+                </button>
+                
+                <div class="now-playing" id="nowPlaying">
+                    🔊 Now playing...
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>This digital note comes with respect and well wishes.</p>
-            <p>Happy Valentine's Day <span class="heart">♥</span></p>
+            <p>This comes with respect and warm wishes for your journey ahead.</p>
+            <p>Happy Valentine's Day, Sophie <span class="heart">♥</span></p>
         </div>
     </div>
 
-    <!-- AUDIO PLAYER WITH YOUR WORKING MP3 URL -->
-    <audio id="myAudio" preload="metadata" crossorigin="anonymous">
-        <!-- YOUR ACTUAL WORKING MP3 URL -->
+    <!-- AUDIO - WILL AUTO PLAY WHEN SHE CLICKS THE BIG RED BUTTON -->
+    <audio id="myAudio" preload="metadata">
         <source src="https://goldenjoseph9.github.io/Valentines-day/Tatiana_Manaois_-_Helplessly_Vistanaij.com_.ng_.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Get DOM elements
         const audio = document.getElementById('myAudio');
-        const playBtn = document.getElementById('playBtn');
-        const playIcon = document.getElementById('playIcon');
-        const playText = document.getElementById('playText');
-        const progressBar = document.getElementById('progressBar');
-        const progressContainer = document.getElementById('progressContainer');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const statusText = document.getElementById('statusText');
-        
         let isPlaying = false;
         
-        // Format time (seconds to mm:ss)
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return "0:00";
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-        
-        // Update progress bar
-        function updateProgress() {
-            const { currentTime, duration } = audio;
-            const progressPercent = (currentTime / duration) * 100;
-            progressBar.style.width = `${progressPercent}%`;
-            currentTimeEl.textContent = formatTime(currentTime);
+        // Open the Valentine and START MUSIC AUTOMATICALLY
+        function openValentine() {
+            // Hide initial screen
+            document.getElementById('initialScreen').style.display = 'none';
             
-            if (duration && !isNaN(duration)) {
-                durationEl.textContent = formatTime(duration);
-            }
-        }
-        
-        // Set progress on click
-        function setProgress(e) {
-            const width = this.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audio.duration;
+            // Show main content
+            const mainContent = document.getElementById('mainContent');
+            mainContent.style.display = 'block';
             
-            if (duration && !isNaN(duration)) {
-                audio.currentTime = (clickX / width) * duration;
-            }
+            // Fade in animation
+            setTimeout(() => {
+                mainContent.style.animation = 'fadeIn 0.8s ease forwards';
+            }, 10);
+            
+            // START THE MUSIC AUTOMATICALLY
+            setTimeout(() => {
+                audio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        // Update button to show "Pause" since music is playing
+                        document.getElementById('playIcon').textContent = '⏸️';
+                        document.getElementById('playText').textContent = 'Pause Song';
+                        document.getElementById('nowPlaying').textContent = '🔊 Now playing...';
+                    })
+                    .catch(error => {
+                        console.error("Auto-play blocked:", error);
+                        // If blocked, show play button instead
+                        document.getElementById('playIcon').textContent = '▶️';
+                        document.getElementById('playText').textContent = 'Play Song';
+                        document.getElementById('nowPlaying').textContent = 'Click play to start';
+                        isPlaying = false;
+                    });
+            }, 500); // Small delay for reveal effect
         }
         
-        // Play/Pause functionality
-        function togglePlay() {
+        // Play/Pause music
+        function toggleMusic() {
+            const playIcon = document.getElementById('playIcon');
+            const playText = document.getElementById('playText');
+            const nowPlaying = document.getElementById('nowPlaying');
+            
             if (isPlaying) {
                 audio.pause();
                 isPlaying = false;
                 playIcon.textContent = '▶️';
                 playText.textContent = 'Play Song';
-                playBtn.classList.remove('playing');
-                statusText.textContent = 'Paused - Click to resume';
-                statusText.className = 'status ready';
+                nowPlaying.textContent = 'Paused';
             } else {
                 audio.play()
                     .then(() => {
                         isPlaying = true;
                         playIcon.textContent = '⏸️';
-                        playText.textContent = 'Pause';
-                        playBtn.classList.add('playing');
-                        statusText.textContent = 'Playing now!';
-                        statusText.className = 'status ready';
-                        
-                        // Update duration if available
-                        if (audio.duration && !isNaN(audio.duration)) {
-                            durationEl.textContent = formatTime(audio.duration);
-                        }
+                        playText.textContent = 'Pause Song';
+                        nowPlaying.textContent = '🔊 Now playing...';
                     })
                     .catch(error => {
                         console.error("Play error:", error);
-                        statusText.textContent = 'Click play again or check browser permissions';
-                        statusText.className = 'status loading';
+                        playText.textContent = 'Click to Play';
                     });
             }
         }
         
-        // Update volume
-        function setVolume() {
-            audio.volume = volumeSlider.value;
-        }
+        // Preload audio for faster start
+        audio.load();
         
-        // Initialize player
-        function initPlayer() {
-            // Setup event listeners
-            playBtn.addEventListener('click', togglePlay);
-            
-            audio.addEventListener('timeupdate', updateProgress);
-            audio.addEventListener('loadedmetadata', () => {
-                if (audio.duration && !isNaN(audio.duration)) {
-                    durationEl.textContent = formatTime(audio.duration);
-                }
-            });
-            
-            audio.addEventListener('canplay', () => {
-                statusText.textContent = '✓ Ready to play! Click play above';
-                statusText.className = 'status ready';
-            });
-            
-            audio.addEventListener('error', (e) => {
-                console.error("Audio error:", audio.error);
-                statusText.textContent = '❌ Audio error. Your MP3 file might have issues.';
-                statusText.className = 'status loading';
-            });
-            
-            audio.addEventListener('ended', () => {
-                isPlaying = false;
-                playIcon.textContent = '▶️';
-                playText.textContent = 'Play Again';
-                playBtn.classList.remove('playing');
-                statusText.textContent = 'Song ended. Click to play again.';
-                statusText.className = 'status ready';
-            });
-            
-            progressContainer.addEventListener('click', setProgress);
-            volumeSlider.addEventListener('input', setVolume);
-            
-            // Set initial volume
-            audio.volume = volumeSlider.value;
-            
-            // Add fade-in animation for messages
-            const messages = document.querySelectorAll('.message, .emphasis, .wish, .music-section');
-            messages.forEach((message, index) => {
-                message.style.animation = `fadeIn 1s ease ${index * 0.2}s forwards`;
-                message.style.opacity = '0';
-            });
-        }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initPlayer);
+        // Handle when song ends
+        audio.addEventListener('ended', () => {
+            // Loop the song
+            audio.currentTime = 0;
+            audio.play();
+        });
     </script>
 </body>
 </html> 
+                        
