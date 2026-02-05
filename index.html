@@ -1,393 +1,348 @@
- <!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Sophie</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #f9e3e3 0%, #f5f5f5 100%);
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        /* INITIAL SCREEN - JUST THE BUTTON */
-        #initialScreen {
-            text-align: center;
-            padding: 40px;
-        }
-        
-        .heart-icon {
-            font-size: 4rem;
-            color: #ff758c;
-            margin-bottom: 30px;
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        .open-btn {
-            background: linear-gradient(to right, #ff4757, #ff6b81);
-            color: white;
-            border: none;
-            padding: 25px 60px;
-            border-radius: 50px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 35px rgba(255, 107, 129, 0.4);
-            margin: 30px 0;
-        }
-        
-        .open-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 107, 129, 0.6);
-        }
-        
-        .open-btn:active {
-            transform: translateY(-2px);
-        }
-        
-        .initial-message {
-            color: #666;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* MAIN CONTENT - HIDDEN INITIALLY */
-        #mainContent {
-            display: none;
-            max-width: 800px;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(to right, #ff7eb3, #ff758c);
-            padding: 30px 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .message-container {
-            background-color: #fff9fb;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-left: 5px solid #ff7eb3;
-        }
-        
-        .message {
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .emphasis {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: #ff758c;
-            margin: 25px 0;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .wish {
-            background-color: #f0f9ff;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            text-align: center;
-            border-top: 3px solid #a3d9ff;
-        }
-        
-        .wish h3 {
-            color: #4a90e2;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .flower-container {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-        
-        .flower {
-            font-size: 3rem;
-            animation: float 3s ease-in-out infinite;
-            margin: 0 10px;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #888;
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
-            margin-top: 20px;
-        }
-        
-        .heart {
-            color: #ff7eb3;
-            display: inline-block;
-            margin: 0 5px;
-        }
-        
-        .music-section {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #fff0f5;
-            border-radius: 15px;
-        }
-        
-        .play-btn {
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 auto;
-        }
-        
-        .play-btn:hover {
-            background-color: #357ae8;
-            transform: translateY(-2px);
-        }
-        
-        .song-title {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            color: #333;
-            font-weight: 500;
-        }
-        
-        .song-artist {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .now-playing {
-            color: #27ae60;
-            font-weight: 600;
-            margin-top: 15px;
-            font-size: 1rem;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sophie</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+        font-family:'Quicksand',sans-serif;
+        background:radial-gradient(circle at top, #ffe6ef 0%, #f7f7f7 70%);
+        color:#333;
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        overflow:hidden;
+    }
+
+    /* Floating Hearts Background */
+    .heart-bg{
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        opacity:0.25;
+    }
+    .heart-bg span{
+        position:absolute;
+        font-size:22px;
+        animation:floatUp 10s linear infinite;
+    }
+    @keyframes floatUp{
+        from{ transform:translateY(110vh) scale(0.8); opacity:0; }
+        20%{ opacity:1; }
+        to{ transform:translateY(-10vh) scale(1.3); opacity:0; }
+    }
+
+    /* Initial Screen */
+    #initialScreen{
+        text-align:center;
+        padding:40px;
+        z-index:2;
+    }
+    .heart-icon{
+        font-size:4rem;
+        color:#ff758c;
+        margin-bottom:25px;
+        animation:heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat{
+        0%,100%{transform:scale(1)}
+        50%{transform:scale(1.2)}
+    }
+    .open-btn{
+        background:linear-gradient(to right,#ff4757,#ff6b81);
+        color:white;
+        border:none;
+        padding:25px 60px;
+        border-radius:50px;
+        font-family:'Dancing Script',cursive;
+        font-size:2.5rem;
+        cursor:pointer;
+        box-shadow:0 15px 35px rgba(255,107,129,0.45);
+        transition:0.3s;
+    }
+    .open-btn:hover{
+        transform:translateY(-5px);
+        box-shadow:0 20px 45px rgba(255,107,129,0.65);
+    }
+    .initial-message{
+        margin-top:20px;
+        color:#666;
+        font-size:1.15rem;
+        max-width:420px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    /* Main Content */
+    #mainContent{
+        display:none;           /* hidden initially */
+        max-width:850px;
+        width:100%;
+        max-height:90vh;        /* mobile viewport */
+        background:rgba(255,255,255,0.96);
+        border-radius:22px;
+        box-shadow:0 12px 35px rgba(0,0,0,0.09);
+        overflow-y:auto;        /* scroll entire page */
+        z-index:2;
+        animation:fadeIn 0.9s ease forwards;
+    }
+
+    .header{
+        background:linear-gradient(to right,#ff7eb3,#ff758c);
+        padding:35px 20px;
+        text-align:center;
+        color:white;
+    }
+    h1{
+        font-family:'Dancing Script',cursive;
+        font-size:3.6rem;
+    }
+    .subtitle{
+        font-size:1.1rem;
+        opacity:0.9;
+    }
+
+    .content{
+        padding:45px;
+    }
+
+    .message-container{
+        background:#fff9fb;
+        border-radius:16px;
+        padding:28px;
+        border-left:6px solid #ff7eb3;
+    }
+    .message{
+        font-size:1.15rem;
+        text-align:center;
+        margin-bottom:18px;
+    }
+    .emphasis{
+        font-family:'Dancing Script',cursive;
+        font-size:1.9rem;
+        color:#ff5f87;
+        text-align:center;
+        margin:25px 0;
+    }
+    .fade-line{
+        opacity:0;
+        transform:translateY(10px);
+        transition:1.2s ease;
+        margin-top:18px;
+        font-style:italic;
+        color:#555;
+    }
+    .fade-line.show{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    .wish{
+        background:#f0f9ff;
+        border-radius:16px;
+        padding:25px;
+        margin:28px 0;
+        text-align:center;
+        border-top:3px solid #a3d9ff;
+    }
+    .wish h3{
+        color:#4a90e2;
+        margin-bottom:15px;
+        font-size:1.55rem;
+    }
+
+    .music-section{
+        text-align:center;
+        margin-top:30px;
+        padding:22px;
+        background:#fff0f5;
+        border-radius:16px;
+    }
+    .play-btn{
+        background:#4a90e2;
+        color:white;
+        border:none;
+        padding:15px 35px;
+        border-radius:50px;
+        cursor:pointer;
+        font-size:1.05rem;
+        margin-top:12px;
+        transition:0.3s;
+    }
+    .play-btn:hover{
+        transform:translateY(-2px);
+    }
+
+    .footer{
+        text-align:center;
+        padding:22px;
+        border-top:1px solid #eee;
+        color:#777;
+    }
+
+    @keyframes fadeIn{
+        from{opacity:0;transform:translateY(18px)}
+        to{opacity:1;transform:translateY(0)}
+    }
+
+    /* Optional scrollbar styling */
+    #mainContent::-webkit-scrollbar {
+        width:6px;
+    }
+    #mainContent::-webkit-scrollbar-thumb {
+        background: #ff7eb3;
+        border-radius:3px;
+    }
+</style>
 </head>
 <body>
-    <!-- INITIAL SCREEN - BIG RED BUTTON -->
-    <div id="initialScreen">
-        <div class="heart-icon">💝</div>
-        <h2 style="color: #ff6b81; margin-bottom: 20px;">For Sophie</h2>
-        <button class="open-btn" onclick="openValentine()">
-            Open
-        </button>
-        <p class="initial-message">
-            A Valentine's Day message for you...
-        </p>
+
+<!-- Floating Hearts Background -->
+<div class="heart-bg">
+    <span style="left:10%; animation-delay:0s;">♥</span>
+    <span style="left:30%; animation-delay:2s;">♥</span>
+    <span style="left:50%; animation-delay:4s;">♥</span>
+    <span style="left:70%; animation-delay:1s;">♥</span>
+    <span style="left:90%; animation-delay:3s;">♥</span>
+</div>
+
+<!-- Landing Page -->
+<div id="initialScreen">
+    <div class="heart-icon">💝</div>
+    <h2 style="color:#ff6b81; margin-bottom:18px;">For Sophie</h2>
+
+    <button class="open-btn" id="openBtn">Open</button>
+
+    <p class="initial-message">
+        I wrote this slowly, with care. Open when you’re alone.
+    </p>
+</div>
+
+<!-- Main Content -->
+<div id="mainContent">
+    <div class="header">
+        <h1>For Sophie</h1>
+        <div class="subtitle">A Valentine's Day Message</div>
     </div>
-    
-    <!-- MAIN CONTENT - REVEALED AFTER CLICK -->
-    <div id="mainContent">
-        <div class="header">
-            <h1>For Sophie</h1>
-            <div class="subtitle">A Valentine's Day Message</div>
+
+    <div class="content">
+        <div class="message-container">
+            <p class="message">
+                On Valentine's Day, I wanted to send you a gentle reminder that some connections remain special, even when paths change.
+            </p>
+            <p class="message">
+                I’ve been thinking about our time together, and I genuinely appreciate the moments we shared.
+            </p>
+            <p class="message">
+                I still remember how you always lit up when you spoke about your dreams.
+            </p>
+            <div class="emphasis">
+                I’m thankful it happened.
+            </div>
+            <p class="message">
+                My decision to step back was about timing and circumstances — not about you.
+            </p>
+            <p class="message fade-line" id="fadeLine">
+                I hope life has been gentle with you lately.
+            </p>
         </div>
-        
-        <div class="content">
-            <div class="message-container">
-                <p class="message">
-                    On Valentine's Day, I wanted to send you a gentle reminder that some connections remain special, even when paths change.
-                </p>
-                
-                <div class="flower-container">
-                    <div class="flower">🌸</div>
-                    <div class="flower">🌼</div>
-                    <div class="flower">🌷</div>
-                </div>
-                
-                <p class="message">
-                    I've been thinking about our time together and wanted you to know that I genuinely appreciate the moments we shared. 
-                    You're an amazing person with so much ahead of you.
-                </p>
-                
-                <div class="emphasis">
-                    Gratitude, not regrets
-                </div>
-                
-                <p class="message">
-                    My decision to step back was about timing and circumstances, not about you. Sometimes things don't align, and that's okay.
-                </p>
-            </div>
-            
-            <div class="wish">
-                <h3>My Wishes for You</h3>
-                <p>As you continue through school and beyond, I wish you:</p>
-                <p>• Joy in your studies and passions</p>
-                <p>• Wonderful friendships that uplift you</p>
-                <p>• Growth into the incredible person you're becoming</p>
-                <p>• All the happiness you deserve</p>
-            </div>
-            
-            <div class="music-section">
-                <h3>A Song for You</h3>
-                <div class="song-title">Helplessly</div>
-                <div class="song-artist">Tatiana Manaois</div>
-                
-                <button class="play-btn" id="playBtn" onclick="toggleMusic()">
-                    <span id="playIcon">⏸️</span>
-                    <span id="playText">Pause Song</span>
-                </button>
-                
-                <div class="now-playing" id="nowPlaying">
-                    🔊 Now playing...
-                </div>
-            </div>
+
+        <div class="wish">
+            <h3>My Wishes for You</h3>
+            <p>As you continue through school and beyond, I wish you:</p>
+            <p>• Joy in your studies and passions</p>
+            <p>• Friendships that truly uplift you</p>
+            <p>• Growth into the incredible person you're becoming</p>
+            <p>• All the happiness you deserve</p>
         </div>
-        
-        <div class="footer">
-            <p>This comes with respect and warm wishes for your journey ahead.</p>
-            <p>Happy Valentine's Day, Sophie <span class="heart">♥</span></p>
+
+        <div class="music-section">
+            <h3>A Song for You</h3>
+            <p><b>Helplessly</b> — Tatiana Manaois</p>
+
+            <button class="play-btn" id="playBtn">
+                <span id="playIcon">⏸️</span>
+                <span id="playText">Pause Song</span>
+            </button>
+
+            <div id="nowPlaying" style="margin-top:12px; font-weight:600; color:#27ae60;">
+                🔊 Now playing...
+            </div>
         </div>
     </div>
 
-    <!-- AUDIO - WILL AUTO PLAY WHEN SHE CLICKS THE BIG RED BUTTON -->
-    <audio id="myAudio" preload="metadata">
-        <source src="https://goldenjoseph9.github.io/Valentines-day/Tatiana_Manaois_-_Helplessly_Vistanaij.com_.ng_.mp3" type="audio/mpeg">
-    </audio>
+    <div class="footer">
+        <p>No reply needed. I just wanted you to know you mattered.</p>
+        <p>Happy Valentine's Day, Sophie ♥</p>
+    </div>
+</div>
 
-    <script>
-        const audio = document.getElementById('myAudio');
-        let isPlaying = false;
-        
-        // Open the Valentine and START MUSIC AUTOMATICALLY
-        function openValentine() {
-            // Hide initial screen
-            document.getElementById('initialScreen').style.display = 'none';
-            
-            // Show main content
-            const mainContent = document.getElementById('mainContent');
-            mainContent.style.display = 'block';
-            
-            // Fade in animation
-            setTimeout(() => {
-                mainContent.style.animation = 'fadeIn 0.8s ease forwards';
-            }, 10);
-            
-            // START THE MUSIC AUTOMATICALLY
-            setTimeout(() => {
-                audio.play()
-                    .then(() => {
-                        isPlaying = true;
-                        // Update button to show "Pause" since music is playing
-                        document.getElementById('playIcon').textContent = '⏸️';
-                        document.getElementById('playText').textContent = 'Pause Song';
-                        document.getElementById('nowPlaying').textContent = '🔊 Now playing...';
-                    })
-                    .catch(error => {
-                        console.error("Auto-play blocked:", error);
-                        // If blocked, show play button instead
-                        document.getElementById('playIcon').textContent = '▶️';
-                        document.getElementById('playText').textContent = 'Play Song';
-                        document.getElementById('nowPlaying').textContent = 'Click play to start';
-                        isPlaying = false;
-                    });
-            }, 500); // Small delay for reveal effect
-        }
-        
-        // Play/Pause music
-        function toggleMusic() {
-            const playIcon = document.getElementById('playIcon');
-            const playText = document.getElementById('playText');
-            const nowPlaying = document.getElementById('nowPlaying');
-            
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-                playIcon.textContent = '▶️';
-                playText.textContent = 'Play Song';
-                nowPlaying.textContent = 'Paused';
-            } else {
-                audio.play()
-                    .then(() => {
-                        isPlaying = true;
-                        playIcon.textContent = '⏸️';
-                        playText.textContent = 'Pause Song';
-                        nowPlaying.textContent = '🔊 Now playing...';
-                    })
-                    .catch(error => {
-                        console.error("Play error:", error);
-                        playText.textContent = 'Click to Play';
-                    });
-            }
-        }
-        
-        // Preload audio for faster start
-        audio.load();
-        
-        // Handle when song ends
-        audio.addEventListener('ended', () => {
-            // Loop the song
-            audio.currentTime = 0;
-            audio.play();
+<!-- Audio -->
+<audio id="myAudio" preload="metadata">
+    <source src="https://goldenjoseph9.github.io/Valentines-day/Tatiana_Manaois_-_Helplessly_Vistanaij.com_.ng_.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const openBtn = document.getElementById('openBtn');
+const mainContent = document.getElementById('mainContent');
+const initialScreen = document.getElementById('initialScreen');
+const fadeLine = document.getElementById('fadeLine');
+const audio = document.getElementById('myAudio');
+const playBtn = document.getElementById('playBtn');
+let isPlaying = false;
+
+// Open internal page
+openBtn.addEventListener('click', () => {
+    initialScreen.style.display = 'none';
+    mainContent.style.display = 'block';
+
+    // Show fade line after delay
+    setTimeout(()=>{ fadeLine.classList.add('show'); }, 1600);
+
+    // Start audio
+    audio.play().then(()=>{ isPlaying = true; })
+    .catch(()=>{ 
+        document.getElementById('playIcon').textContent='▶️';
+        document.getElementById('playText').textContent='Play Song';
+        document.getElementById('nowPlaying').textContent='Click play to start';
+        isPlaying=false;
+    });
+});
+
+// Toggle music
+playBtn.addEventListener('click', ()=>{
+    if(isPlaying){
+        audio.pause();
+        isPlaying = false;
+        document.getElementById('playIcon').textContent='▶️';
+        document.getElementById('playText').textContent='Play Song';
+        document.getElementById('nowPlaying').textContent='Paused';
+    } else {
+        audio.play().then(()=>{
+            isPlaying=true;
+            document.getElementById('playIcon').textContent='⏸️';
+            document.getElementById('playText').textContent='Pause Song';
+            document.getElementById('nowPlaying').textContent='🔊 Now playing...';
         });
-    </script>
+    }
+});
+
+// Loop audio
+audio.addEventListener('ended', ()=>{
+    audio.currentTime = 0;
+    audio.play();
+});
+</script>
+
 </body>
-</html> 
-                        
+</html>
