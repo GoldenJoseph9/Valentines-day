@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+    /* ALL YOUR EXISTING CSS STAYS EXACTLY THE SAME */
     *{ margin:0; padding:0; box-sizing:border-box; }
 
     body{
@@ -85,14 +86,14 @@
 
     /* Main Content */
     #mainContent{
-        display:none;           /* hidden initially */
+        display:none;
         max-width:850px;
         width:100%;
-        max-height:90vh;        /* mobile viewport */
+        max-height:90vh;
         background:rgba(255,255,255,0.96);
         border-radius:22px;
         box-shadow:0 12px 35px rgba(0,0,0,0.09);
-        overflow-y:auto;        /* scroll entire page */
+        overflow-y:auto;
         z-index:2;
         animation:fadeIn 0.9s ease forwards;
     }
@@ -195,7 +196,6 @@
         to{opacity:1;transform:translateY(0)}
     }
 
-    /* Optional scrollbar styling */
     #mainContent::-webkit-scrollbar {
         width:6px;
     }
@@ -224,7 +224,7 @@
     <button class="open-btn" id="openBtn">Open</button>
 
     <p class="initial-message">
-        I wrote this slowly, with care. Open when you’re alone.
+        I wrote this slowly, with care. Open when you're alone.
     </p>
 </div>
 
@@ -238,51 +238,60 @@
     <div class="content">
         <div class="message-container">
             <p class="message">
-                On Valentine's Day, I wanted to send you a gentle reminder that some connections remain special, even when paths change.
+                Sophie, this song captures a feeling I couldn't quite put into words - 
+                that helpless pull towards someone even when timing says to wait.
             </p>
             <p class="message">
-                I’ve been thinking about our time together, and I genuinely appreciate the moments we shared.
+                I've been thinking about our time together, and what I feel is deeper than just memories.
+                It's about who you are and the connection we shared.
             </p>
             <p class="message">
-                I still remember how you always lit up when you spoke about your dreams.
+                I still remember how you lit up when you spoke about your dreams, 
+                and I believe in all of them.
             </p>
             <div class="emphasis">
-                I’m thankful it happened.
+                I'm thankful it happened,
             </div>
             <p class="message">
-                My decision to step back was about timing and circumstances — not about you.
+                and hopeful for what could be when timing allows.
             </p>
             <p class="message fade-line" id="fadeLine">
-                I hope life has been gentle with you lately.
+                For now, I just hope life is being kind to you.
             </p>
         </div>
 
         <div class="wish">
-            <h3>My Wishes for You</h3>
-            <p>As you continue through school and beyond, I wish you:</p>
-            <p>• Joy in your studies and passions</p>
-            <p>• Friendships that truly uplift you</p>
-            <p>• Growth into the incredible person you're becoming</p>
-            <p>• All the happiness you deserve</p>
+            <h3>My Wishes For You</h3>
+            <p>As you face your exams, I wish you:</p>
+            <p>• Clarity of mind and calmness of heart</p>
+            <p>• Strength to focus and confidence in your preparation</p>
+            <p>• Moments of peace amidst the study storm</p>
+            <p>• All the success you've worked so hard for</p>
         </div>
 
         <div class="music-section">
-            <h3>A Song for You</h3>
+            <h3>A Song That Says It Better</h3>
             <p><b>Helplessly</b> — Tatiana Manaois</p>
-
+            <p style="font-style: italic; color: #666; margin: 10px 0 20px 0;">
+                "Sometimes a song captures exactly what words can't - 
+                that dizzying feeling when your heart and timing disagree."
+            </p>
+            
             <button class="play-btn" id="playBtn">
                 <span id="playIcon">⏸️</span>
                 <span id="playText">Pause Song</span>
             </button>
 
             <div id="nowPlaying" style="margin-top:12px; font-weight:600; color:#27ae60;">
-                🔊 Now playing...
+                🎵 Playing now...
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>No reply needed. I just wanted you to know you mattered.</p>
+        <p>No need to reply now. Your focus should be on your exams.</p>
+        <p>When this chapter closes and if timing allows,</p>
+        <p>I'd like to see where our connection could go.</p>
         <p>Happy Valentine's Day, Sophie ♥</p>
     </div>
 </div>
@@ -293,6 +302,7 @@
 </audio>
 
 <script>
+// ALL YOUR EXISTING JAVASCRIPT STAYS EXACTLY THE SAME
 const openBtn = document.getElementById('openBtn');
 const mainContent = document.getElementById('mainContent');
 const initialScreen = document.getElementById('initialScreen');
@@ -332,7 +342,7 @@ playBtn.addEventListener('click', ()=>{
             isPlaying=true;
             document.getElementById('playIcon').textContent='⏸️';
             document.getElementById('playText').textContent='Pause Song';
-            document.getElementById('nowPlaying').textContent='🔊 Now playing...';
+            document.getElementById('nowPlaying').textContent='🎵 Playing now...';
         });
     }
 });
