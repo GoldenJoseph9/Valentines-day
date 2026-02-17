@@ -1,8 +1,8 @@
-      <!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>For Sophie</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
         position:absolute;
         inset:0;
         pointer-events:none;
-        opacity:0.25;
+        opacity:0.22;
     }
     .heart-bg span{
         position:absolute;
@@ -58,6 +58,7 @@
         0%,100%{transform:scale(1)}
         50%{transform:scale(1.2)}
     }
+
     .open-btn{
         background:linear-gradient(to right,#ff4757,#ff6b81);
         color:white;
@@ -74,6 +75,7 @@
         transform:translateY(-5px);
         box-shadow:0 20px 45px rgba(255,107,129,0.65);
     }
+
     .initial-message{
         margin-top:20px;
         color:#666;
@@ -108,8 +110,8 @@
         font-size:3.6rem;
     }
     .subtitle{
-        font-size:1.1rem;
-        opacity:0.9;
+        font-size:1.05rem;
+        opacity:0.92;
     }
 
     .content{
@@ -122,18 +124,22 @@
         padding:28px;
         border-left:6px solid #ff7eb3;
     }
+
     .message{
         font-size:1.15rem;
         text-align:center;
         margin-bottom:18px;
+        line-height:1.6;
     }
+
     .emphasis{
         font-family:'Dancing Script',cursive;
-        font-size:1.9rem;
+        font-size:2rem;
         color:#ff5f87;
         text-align:center;
         margin:25px 0;
     }
+
     .fade-line{
         opacity:0;
         transform:translateY(10px);
@@ -168,6 +174,18 @@
         background:#fff0f5;
         border-radius:16px;
     }
+
+    .soft-note{
+        margin: 18px 0;
+        padding: 18px;
+        background: #fff9fb;
+        border-radius: 12px;
+        border-left: 3px solid #ff7eb3;
+        font-style: italic;
+        color: #555;
+        line-height: 1.7;
+    }
+
     .play-btn{
         background:#4a90e2;
         color:white;
@@ -188,6 +206,7 @@
         padding:22px;
         border-top:1px solid #eee;
         color:#777;
+        line-height:1.6;
     }
 
     @keyframes fadeIn{
@@ -204,6 +223,7 @@
     }
 </style>
 </head>
+
 <body>
 
 <!-- Floating Hearts Background -->
@@ -223,7 +243,8 @@
     <button class="open-btn" id="openBtn">Open</button>
 
     <p class="initial-message">
-        I wrote this slowly, with care. Open when you're alone.
+        I wrote this with care.  
+        No pressure — just read whenever you feel like.
     </p>
 </div>
 
@@ -231,60 +252,62 @@
 <div id="mainContent">
     <div class="header">
         <h1>For Sophie</h1>
-        <div class="subtitle">A Valentine's Day Message</div>
+        <div class="subtitle">Just a Small Note I Meant</div>
     </div>
 
     <div class="content">
+
+        <!-- Main Message -->
         <div class="message-container">
             <p class="message">
-                Sophie, on Valentine's Day, I wanted to send you something honest and kind.
+                Sophie, I wanted to leave you something simple and honest.
             </p>
+
             <p class="message">
-                I've done a lot of thinking since we stepped back. I realize I was expecting a kind of "flawless" that isn't real. Real connection isn't about perfect timing or a perfect story — it's about two people choosing to try, even when it's messy.
+                Life gets busy, timing gets complicated, and people grow —
+                but some moments still stay meaningful.
             </p>
+
             <p class="message">
-                I still remember how you lit up talking about your dreams, and that's one of the things I've always admired about you.
+                I’ve always admired the way you carry your dreams,
+                and I genuinely believe you’ll do great with what’s ahead of you.
             </p>
+
             <div class="emphasis">
-                I'm truly thankful for the friendship we have now.
+                You mattered to me.
             </div>
+
             <p class="message">
-                If I could change one thing, it would be my own mindset back then — not us.
+                Not as a perfect story… just as a real person I’m grateful to know.
             </p>
+
             <p class="message fade-line" id="fadeLine">
-                More than anything, I hope you're doing well.
+                I’m cheering for you, quietly and sincerely.
             </p>
         </div>
 
+        <!-- Wishes -->
         <div class="wish">
-            <h3>My Wishes For You</h3>
-            <p>As you face your exams, I wish you:</p>
-            <p>• Clarity of mind and calmness of heart</p>
-            <p>• Strength to focus and confidence in your preparation</p>
-            <p>• Moments of peace amidst the study storm</p>
-            <p>• All the success you've worked so hard for</p>
+            <h3>For This Season</h3>
+            <p>As you face WAEC and everything ahead, I wish you:</p>
+            <p>• Calm focus and confidence</p>
+            <p>• Peace in the middle of pressure</p>
+            <p>• Strength to finish well</p>
+            <p>• The success you’ve worked for</p>
         </div>
 
+        <!-- Music -->
         <div class="music-section">
-            <h3>A Song That Says It Better</h3>
+            <h3>A Soft Background Song</h3>
             <p><b>Helplessly</b> — Tatiana Manaois</p>
-            
-            <div style="margin: 20px 0; padding: 20px; background: #fff9fb; border-radius: 12px; border-left: 3px solid #ff7eb3;">
-                <p style="font-style: italic; color: #555; line-height: 1.6; text-align: center;">
-                    This song is only background.<br>
-                    The truth is in the silence between the notes:<br><br>
-                    
-                    You mattered to me.<br>
-                    More than I admitted out loud.<br>
-                    More than timing allowed.<br><br>
-                    
-                    <span style="color: #ff5f87; font-weight: 500;">
-                        Some feelings don't disappear.<br>
-                        They just become quieter… and stay.
-                    </span>
-                </p>
+
+            <div class="soft-note">
+                This song is only background.<br><br>
+                The real message is simple:<br><br>
+                Some feelings don’t vanish loudly…<br>
+                they just become quieter, and stay kind.
             </div>
-            
+
             <button class="play-btn" id="playBtn">
                 <span id="playIcon">⏸️</span>
                 <span id="playText">Pause Song</span>
@@ -294,13 +317,15 @@
                 🎵 Playing now...
             </div>
         </div>
+
     </div>
 
+    <!-- Footer -->
     <div class="footer">
-        <p>No need to reply to this — your exams come first.</p>
-        <p>I'm focusing on my own growth right now, and I'm glad we're friends.</p>
-        <p>If, when the time is right for both of us, you ever wanted to try again… I'd be open to that.</p>
-        <p>Happy Valentine's Day, Sophie ♥</p>
+        <p>No need to reply to this.</p>
+        <p>Your focus comes first.</p>
+        <p>Just know I’m wishing you well.</p>
+        <p>— Golden Joseph ♥</p>
     </div>
 </div>
 
@@ -316,6 +341,7 @@ const initialScreen = document.getElementById('initialScreen');
 const fadeLine = document.getElementById('fadeLine');
 const audio = document.getElementById('myAudio');
 const playBtn = document.getElementById('playBtn');
+
 let isPlaying = false;
 
 // Open internal page
@@ -326,12 +352,13 @@ openBtn.addEventListener('click', () => {
     // Show fade line after delay
     setTimeout(()=>{ fadeLine.classList.add('show'); }, 1600);
 
-    // Start audio
-    audio.play().then(()=>{ isPlaying = true; })
-    .catch(()=>{ 
+    // Start audio autoplay
+    audio.play().then(()=>{ 
+        isPlaying = true; 
+    }).catch(()=>{ 
         document.getElementById('playIcon').textContent='▶️';
         document.getElementById('playText').textContent='Play Song';
-        document.getElementById('nowPlaying').textContent='Click play to start';
+        document.getElementById('nowPlaying').textContent='Tap play to start';
         isPlaying=false;
     });
 });
@@ -362,4 +389,4 @@ audio.addEventListener('ended', ()=>{
 </script>
 
 </body>
-</html>  
+</html>
